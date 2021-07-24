@@ -587,6 +587,42 @@
   #define LCD_LANGUAGE vi
 #endif
 
+/**
+ * SKR 2 Flash Drive Support
+ * 
+ * Use LCD/onboard SD by default:
+ * 
+ * Multi-volume is expiremental, and is not stable.  At this point, Multi-volume only supports
+ * the onboard SD card slot, and does NOT have an option for using SD cards mounted to LCDs.
+ * 
+ * Options:  1: Use SD Card standalone
+ *           2: Use Flash Drive (built into controller board)
+ *           3: Use SD and Flash Drive (Expiremental!!)
+ */
+
+#if !defined(PRUSA_SKR_SD_FLASH_DRIVE) || (PRUSA_SKR_SD_FLASH_DRIVE < 1 || PRUSA_SKR_SD_FLASH_DRIVE > 3)
+  #error "PRUSA_SKR_SD_FLASH_DRIVE is invalid or not defined."
+#elif PRUSA_SKR_SD_FLASH_DRIVE != 1 && PRUSA_SKR_MOTHERBOARD != 4
+  #error "USB Flash Drive is only supported on the SKR 2."
+#elif PRUSA_SKR_SD_FLASH_DRIVE == 1
+  #ifdef USB_FLASH_DRIVE_SUPPORT
+    #undef USB_FLASH_DRIVE_SUPPORT
+  #endif
+#elif PRUSA_SKR_SD_FLASH_DRIVE == 2 || PRUSA_SKR_SD_FLASH_DRIVE == 3 
+  #define USB_FLASH_DRIVE_SUPPORT
+  #define USE_OTG_USB_HOST
+#endif
+
+#if PRUSA_SKR_SD_FLASH_DRIVE == 3
+  #define MULTI_VOLUME
+    #if ENABLED(MULTI_VOLUME)
+      #define VOLUME_SD_ONBOARD
+      #define VOLUME_USB_FLASH_DRIVE
+      #define DEFAULT_VOLUME SV_SD_ONBOARD
+      #define DEFAULT_SHARED_VOLUME SV_USB_FLASH_DRIVE
+    #endif
+#endif
+
 //===========================================================================
 //================================ NeoPixels ================================
 //===========================================================================
