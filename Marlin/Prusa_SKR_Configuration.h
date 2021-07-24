@@ -59,7 +59,7 @@
  *           3: BigTreeTech BTT002 1.0     (STM32F407VGT6)
  *           4: BigTreeTech SKR 2.0 Rev. B (STM32F407VGT6)
  */
-#define PRUSA_SKR_MOTHERBOARD 1
+#define PRUSA_SKR_MOTHERBOARD 4
 
 //===========================================================================
 //============================= Stepper Motors ==============================

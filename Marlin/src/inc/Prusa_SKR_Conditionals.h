@@ -102,9 +102,9 @@
     #define MOTHERBOARD BOARD_BTT_SKR_V2_0_REV_B
     #define SERIAL_PORT 1
 
-    // Flash Drive Support
-    #define USB_FLASH_DRIVE_SUPPORT
-    #define USE_OTG_USB_HOST
+    // Flash Drive Support - THIS DISABLES LCD SD CARD
+    // #define USB_FLASH_DRIVE_SUPPORT
+    // #define USE_OTG_USB_HOST
 
     // Multi-Volume Support
     //#define MULTI_VOLUME
