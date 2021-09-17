@@ -1,0 +1,43 @@
+#
+# test-all-in-one-builds.yml
+# Do test builds to catch compile errors
+#
+
+name: SKR AIO CI
+
+on:
+  pull_request:
+    paths-ignore:
+    - config/**
+    - data/**
+    - docs/**
+    - '**/*.md'
+  push:
+    paths-ignore:
+    - config/**
+    - data/**
+    - docs/**
+    - '**/*.md'
+
+jobs:
+  test_builds:
+    name: Test Build
+    if: github.repository == 'codiac2600/SKR-Bear-Marlin'
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the PR
+      uses: actions/checkout@v2
+
+    - name: Select Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+    - name: Build Marlin
+      run: |
+        pip install -U https://github.com/platformio/platformio-core/archive/develop.zip
+        platformio update
+        platformio run
