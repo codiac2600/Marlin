@@ -11,7 +11,7 @@
 //===========================================================================
 //================================== Moved ==================================
 //===========================================================================
-#error "You're using old firmware! I've moved the project back to https://github.com/thisiskeithb/Marlin/tree/prusa-aio/bugfix-2.0.x . Comment out this line to continue."
+#error "You're using old firmware! This project has moved to https://github.com/thisiskeithb/PrusaAIO . Please update your bookmarks. Comment out this line to continue."
 
 //===========================================================================
 //=========================== Predefined Configs ============================

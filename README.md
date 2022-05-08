@@ -1,6 +1,6 @@
 # Looking for the latest version?
 
-I've moved the project back to [thisiskeithb/Marlin/tree/prusa-aio/bugfix-2.0.x](https://github.com/thisiskeithb/Marlin/tree/prusa-aio/bugfix-2.0.x)
+This project has moved to [thisiskeithb/PrusaAIO](https://github.com/thisiskeithb/PrusaAIO). Please update your bookmarks.
 
 \- thisiskeithb
 
